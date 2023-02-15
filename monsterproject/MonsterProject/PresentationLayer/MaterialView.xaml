@@ -1,0 +1,55 @@
+﻿<Window x:Name="Material" x:Class="PresentationLayer.MaterialView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PresentationLayer"
+        mc:Ignorable="d"
+        Title="Material View" Height="450" Width="500" WindowStartupLocation="CenterScreen" Loaded="MaterialView_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Label x:Name="lblMaterialView" Grid.Row="1" Content="View Material" 
+               FontWeight="Bold" FontSize="22" Grid.ColumnSpan="4" HorizontalAlignment="Center" />
+        <Label x:Name="lblMaterialName" Grid.Row="2" Content="Material Name:" Margin="10 2"/>
+        <TextBox x:Name="txtMaterialName" Grid.Row="3" Margin="10 2" IsReadOnly="True"/>
+        <Label x:Name="lblAddMatMonsterName" Grid.Row="2" Grid.Column="1" Content="Monster Name:" Margin="10 2"/>
+        <ComboBox x:Name="cmbMatMonsterName" Grid.Row="3" Grid.Column="1" Margin="10 0" Width="200" Height="20" HorizontalAlignment="Left">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Label x:Name="lblViewMatMonsterName" Grid.Row="4" Content="Monster Name:" Margin="10 2"/>
+        <TextBox x:Name="txtViewMatMonsterName" Grid.Row="5" Margin="10 2" IsReadOnly="True"/>
+        <Label x:Name="lblPrice" Grid.Row="6" Content="Price:" Margin="10 2"/>
+        <TextBox x:Name="txtPrice" Grid.Row="7" Margin="10 2" IsReadOnly="True"/>
+        <Label x:Name="lblRates" Grid.Row="7" Grid.Column="1" Content="(For drop rates 1.00 = 100%)" Margin="10 2" FontStyle="Italic" FontSize="10"/>
+        <Label x:Name="lblDropRates" Grid.Row="8" Content="Drop Rates:" Margin="10 2"/>
+        <DataGrid x:Name="datDropRates" IsReadOnly="True" Grid.Row="9" Margin="10 0 8 0">
+        </DataGrid>
+        <Label x:Name="lblPartDropRates" Grid.Row="8" Grid.Column="1" Content="Broken Part Drop Rates:" Margin="10 2"/>
+        <DataGrid x:Name="datPartDropRates" IsReadOnly="True" Grid.Row="9" Grid.Column="1" Margin="6 0 10 0">
+        </DataGrid>
+        <Button x:Name="btnAddMaterial" Grid.Row="10" Margin="150 5 10 5" Content="Add" Click="btnAddMaterial_Click" />
+        <Button x:Name="btnCancelMaterial" Grid.Row="10" Grid.Column="1" Margin="8 5 150 5" Content="Cancel" Click="btnCancelMaterial_Click" />
+    </Grid>
+</Window>
