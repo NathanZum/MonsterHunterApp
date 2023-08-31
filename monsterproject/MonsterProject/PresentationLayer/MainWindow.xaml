@@ -1,0 +1,139 @@
+﻿<Window x:Name="frmMain" x:Class="PresentationLayer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PresentationLayer"
+        mc:Ignorable="d"
+        Title="Monster Display App" Height="800" Width="1200" WindowStartupLocation="CenterScreen" Loaded="frmMain_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="70" />
+            <RowDefinition Height="10" />
+            <RowDefinition />
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="35"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <!-- password -->
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="120"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="lblGreeting" Content="You are not logged in."
+                   Padding="20 5 0 0" Margin="5" />
+            <TextBox x:Name="txtUsername" Margin="5 5 5 0" Grid.Column="1"
+                     HorizontalContentAlignment="Center" 
+                     VerticalContentAlignment="Center" />
+            <PasswordBox x:Name="txtPassword" Margin="5 5 5 0" Grid.Column="2"
+                     HorizontalContentAlignment="Center" 
+                     VerticalContentAlignment="Center" />
+            <Button x:Name="btnLogin" Margin="5 5 15 5" Grid.Column="3"
+                    Content="Login" Click="btnLogin_Click" />
+            <Button x:Name="btnChangePassword" Margin="5 5 15 5" Grid.Row="1" Grid.Column="3"
+                    Content="Change Password" Click="btnChangePassword_Click" />
+            <Label Grid.Row="1" Grid.Column="1" Content="User Name" 
+                   HorizontalAlignment="Center" x:Name="lblUsername"/>
+            <Label Grid.Row="1" Grid.Column="2" Content="Password" 
+                   HorizontalAlignment="Center" x:Name="lblPassword"/>
+        </Grid>
+        <StackPanel x:Name="pnlTabs" Grid.Row="3">
+            <TabControl x:Name="tabsetMain">
+                <TabItem x:Name="tabMonster" Header="Monsters">
+                    <!-- Monster tab-->
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition Height="500"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="500"/>
+                            <ColumnDefinition Width="400"/>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Monster List:" FontWeight="Bold" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <DataGrid x:Name="datMonster" Grid.ColumnSpan="4" Grid.Row="1" FontSize="20" Margin="10" Padding="3" IsReadOnly="True" Loaded="datMonster_Loaded" MouseDoubleClick="datMonster_MouseDoubleClick" >
+                        </DataGrid>
+                        <Button x:Name="btnAddMonster" Content="Add Monster" Grid.Column="2" Margin="10 20 10 10" Click="btnAddMonster_Click"/>
+                        <Button x:Name="btnUpdateMonster" Content="Update Monster" Grid.Column="3" Margin="10 20 10 10" Click="btnUpdateMonster_Click"/>
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="tabMaterial" Header="Materials" >
+                    <!-- Material tab -->
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition Height="500"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="500"/>
+                            <ColumnDefinition Width="400"/>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Material List:" FontWeight="Bold" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <DataGrid x:Name="datMaterials" Grid.ColumnSpan="4" Grid.Row="1" FontSize="20" Margin="10" Padding="3" IsReadOnly="True" MouseDoubleClick="datMaterials_MouseDoubleClick" Loaded="datMaterials_Loaded"  >
+                    </DataGrid>
+                    <Button x:Name="btnAddMaterial" Content="Add Material" Grid.Column="2" Margin="10 20 10 10" Click="btnAddMaterial_Click"/>
+                     <Button x:Name="btnUpdateMaterial" Content="Update Material" Grid.Column="3" Margin="10 20 10 10" Click="btnUpdateMaterial_Click"/>
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="tabTerrain" Header="Terrain" GotFocus="tabTerrain_GotFocus">
+                    <!-- Add Terrain tab -->
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition Height="500"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="500"/>
+                            <ColumnDefinition Width="400"/>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Monster List:" FontWeight="Bold" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <DataGrid x:Name="datMonsterTerrain" Grid.ColumnSpan="4" Grid.Row="1" FontSize="20" Margin="10" Padding="3" IsReadOnly="True" >
+                        </DataGrid>
+                        <Button x:Name="btnAddTerrain" Content="Add Terrain" Grid.Column="2" Margin="10 20 10 10" Click="btnAddTerrain_Click"/>
+                        <Button x:Name="btnAssignTerrain" Content="Assign Terrain" Grid.Column="3" Margin="10 20 10 10" Click="btnAssignTerrain_Click" />
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="tabPart" Header="Monster Part">
+                    <!-- Monster Part tab -->
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition Height="500"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="500"/>
+                            <ColumnDefinition Width="400"/>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Monster Part List:" FontWeight="Bold" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <DataGrid x:Name="datPart" Grid.ColumnSpan="4" Grid.Row="1" FontSize="20" Margin="10" Padding="3" IsReadOnly="True" Loaded="datPart_Loaded" >
+                        </DataGrid>
+                        <Button x:Name="btnAddPart" Content="Add Part" Grid.Column="2" Margin="10 20 10 10" Click="btnAddPart_Click"/>
+                        <Button x:Name="btnUpdatePart" Content="Update Part" Grid.Column="3" Margin="10 20 10 10" Click="btnUpdatePart_Click"/>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </StackPanel>
+        <Grid Grid.Row="5">
+            <StatusBar>
+                <StatusBarItem x:Name="statMessage" Padding="20 0">
+                    Welcome. Please browse or login to add and update.  
+                </StatusBarItem>
+            </StatusBar>
+        </Grid>
+    </Grid>
+</Window>

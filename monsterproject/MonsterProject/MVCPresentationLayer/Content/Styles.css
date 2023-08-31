@@ -1,0 +1,247 @@
+﻿#nav {
+    background-color : darkslateblue;
+}
+
+body{
+    color: black;
+    height: 100%;
+}
+
+.row{
+    margin-top: 50px;
+}
+
+.home{
+    height: 900px;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #dedede;
+    font-family: odachi,'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+.navbar-inverse .navbar-brand {
+    color: white;
+    font-family: odachi,'Times New Roman', Times, serif;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.notice {
+    display: block;
+    width: 100%;
+    padding: 6px 12px;
+}
+
+h1{
+    font-family: odachi,'Times New Roman', Times, serif;
+    font-size:60px;
+    font-weight:bold;
+}
+
+h3 {
+    font-family: odachi,'Times New Roman', Times, serif;
+    font-size:30px;
+    font-weight:400;
+}
+
+h2, footer, h4, form{
+    margin-left: 10px;
+}
+
+.a-redirect{
+    color: orange;
+}
+
+.a-redirect:visited, .a-redirect:hover, .a-redirect:active {
+    color: goldenrod;
+}
+
+.btn-primary {
+    display: block;
+    width: fit-content;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left: 5px;
+    color: #fff;
+    background-color: orange;
+    border-color: darkorange;
+}
+
+.inline{
+    display: inline-block;
+    margin: 2px;
+}
+
+ .btn-primary:hover {
+     color: #fff;
+     background-color: darkgoldenrod;
+     border-color: goldenrod;
+}
+
+.btn-primary:active:hover, .btn-primary.active:hover, .open > .dropdown-toggle.btn-primary:hover, .btn-primary:active:focus, .btn-primary.active:focus, .open > .dropdown-toggle.btn-primary:focus, .btn-primary:active.focus, .btn-primary.active.focus, .open > .dropdown-toggle.btn-primary.focus {
+     color: #fff;
+     background-color: goldenrod;
+     border-color: darkgoldenrod;
+
+}
+
+@font-face {
+    font-family: "odachi";
+    src: url("../fonts/Odachi.woff") format('woff');
+}
+
+@media (min-width: 768px){
+    .navbar-fixed-top .navbar-collapse, .navbar-static-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-collapse.collapse {
+        display: block !important;
+        height: auto !important;
+        padding-bottom: 0;
+        overflow: visible !important;
+    }
+}
+
+@media (min-width: 768px){
+    .navbar-collapse {
+        width: auto;
+        border-top: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+}
+
+@media (min-width: 768px){
+    .navbar-toggle {
+        display: none;
+    }
+}
+
+@media (min-width: 768px){
+    .container {
+        width: 95%;
+    }
+}
+
+.body-content {
+    width:auto;
+}
+
+.container {
+    padding-right: 0px; 
+    padding-left: 0px; 
+    margin-right: auto;
+    margin-left: auto;
+    height: 100%;
+}
+
+.header {
+    max-width: 100%;
+    overflow: hidden;
+}
+.mask {
+    position: relative;
+    z-index: 0;
+    margin-top: -50px;
+    margin-bottom: -20px;
+}
+
+    .mask ::before {
+        display: inline-block;
+        position: absolute;
+        background-image: radial-gradient(circle, rgba(240,199,10,.75) 15%, rgba(219,255,10,.75) 39%, rgba(218,250,31,.75) 67%, rgba(230,198,100,.75) 86%), url(./Images/logo.jpg), url(./Images/logo2.png);
+        width: 100%;
+        height: 100%;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        opacity: 70%;
+        z-index: -1;
+        background-position: center, center;
+        -webkit-mask-image: url(Images/WallBlotch.png);
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        -webkit-mask-size: cover;
+        mask-image: url(Images/WallBlotch.png);
+    }
+
+.maskMonster {
+    position: relative;
+    z-index: 0;
+}
+
+.maskMonster ::before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
+    background-size: inherit;
+    background-repeat: no-repeat;
+    opacity: 82%;
+    background-position: center, center;
+    -webkit-mask-image: url(Images/brush-stroke-png.png);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-position-x: 40%;
+    -webkit-mask-position-y: -10%;
+    -webkit-mask-size: auto;
+    mask-image: url(Images/brush-stroke-png.png);
+    z-index: -1;
+}
+
+.maskMonsterMaterial {
+    position: relative;
+    z-index: 0;
+}
+
+    .maskMonsterMaterial ::before {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-attachment: fixed;
+        background-size: inherit;
+        background-repeat: no-repeat;
+        opacity: 78%;
+        background-position: center, center;
+        -webkit-mask-image: url(Images/WallBlotch.png);
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        /* -webkit-mask-position-x: 40%; */
+        -webkit-mask-position-y: 12%;
+        -webkit-mask-size: cover;
+        mask-image: url(Images/WallBlotch.png);
+        z-index: -1;
+    }
+
+.maskWall {
+    position: relative;
+    z-index: 0;
+}
+
+    .maskWall ::before {
+        display: inline-block;
+        position: absolute;
+        background-image: linear-gradient(90deg, rgba(209,185,75,0.75) 15%, rgba(219,228,166,0.43) 39%, rgba(219,228,166,0.43) 58%, rgba(191,164,81,0.8) 82%), url(./Images/logo.jpg), url(./Images/logo2.png);
+        width: 100%;
+        height: 100%;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        opacity: 30%;
+        z-index: -1;
+        background-position: center, center;
+        -webkit-mask-image: url(Images/BrushWall.png);
+        -webkit-mask-repeat: repeat-y;
+        -webkit-mask-position: center;
+        -webkit-mask-position-y: -60px;
+        -webkit-mask-size: 110%;
+        mask-image: url(Images/BrushWall.png);
+    } 
+
+.row.text-center::before {
+    content: none;
+}

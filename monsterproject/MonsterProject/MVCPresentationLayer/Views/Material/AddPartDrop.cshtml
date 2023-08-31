@@ -1,0 +1,85 @@
+﻿@model DataObjects.PartDrop
+
+@{
+    ViewBag.Title = "AddPartDrop";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add a Part Drop</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        <div class="row">
+            <div class="col-sm-4 text-center">
+                <h1>@ViewBag.Material.MaterialName</h1>
+                <h3>Broken Part Droprates</h3>
+                <p> 1.00 = 100%</p>
+                <table class="table">
+                    <tr>
+                        <th class="text-center">
+                            Part Name
+                        </th>
+                        <th class="text-center">
+                            Rate
+                        </th>
+                    </tr>
+                    @foreach (var droprate in ViewBag.Drops)
+                    {
+                        <tr>
+                            <td>
+                                @droprate.PartName
+                            </td>
+                            <td>
+                                @droprate.DropRate
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaterialID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PartName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.PartID,
+                    new SelectList((IEnumerable<DataObjects.Part>)ViewBag.Parts,
+                    "PartID", "PartName"),
+                    new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PartName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <p style="margin:0 0 10px 60px"> 100 = 100% | 50 = 50%</p>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DropRate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="number" min="0" max="100" value="0" class="form-control input-validation-error" data-val="true"
+                       data-val-required="Please enter the droprate." id="DropRate" name="DropRate" value aria-describedby="DropRate-error" />
+                <span class="text-danger field-validation-error" data-valmsg-for="Droprate" data-valmsg-replace="true">
+                    <span id="DropRate-error"></span>
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", new object { }, new { @class = "btn btn-primary" })
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

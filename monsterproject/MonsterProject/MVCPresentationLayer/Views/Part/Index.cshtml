@@ -1,0 +1,96 @@
+﻿@model IEnumerable<DataObjects.PartVM>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Part List</h2>
+
+<p>
+    @Html.ActionLink("Create New Part", "Create", new object { }, new { @class = "btn btn-primary" })
+</p>
+<div class="maskWall">
+    <div class="container">
+        <table class="table">
+            <tr>
+                <th>
+                    Monster Icon
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MonsterName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PartName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fire)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Water)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Thunder)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dragon)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cut)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Blunt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ammo)
+                </th>
+                <th></th>
+            </tr>
+
+            @for (int i = 0; i < Model.Count(); i++)
+            {
+                <tr>
+                    <td>
+                        <img src="@ViewBag.monsterIcons[i]" onerror="this.src='/Content/Images/QuestionMarkIcon.jpg'" height="80" width="80" />
+                    </td>
+                    <td>
+                        @Model.ElementAt(i).MonsterName
+                    </td>
+                    <td>
+                        @Model.ElementAt(i).PartName
+                    </td>
+                    <td>
+                        @Model.ElementAt(i).Fire
+                    </td>
+                    <td>
+                        @Model.ElementAt(i).Water
+                    </td>
+                    <td>
+                        @Model.ElementAt(i).Thunder
+                    </td>
+                    <td>
+                        @Model.ElementAt(i).Ice
+                    </td>
+                    <td>
+                        @Model.ElementAt(i).Dragon
+                    </td>
+                    <td>
+                        @Model.ElementAt(i).Cut
+                    </td>
+                    <td>
+                        @Model.ElementAt(i).Blunt
+                    </td>
+                    <td>
+                        @Model.ElementAt(i).Ammo
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = @Model.ElementAt(i).PartID }, new { @class = "btn btn-primary" })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
